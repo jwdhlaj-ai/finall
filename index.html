@@ -192,10 +192,23 @@
       transform: scale(1.2);
     }
 
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #3E3B32;
+      font-size: 24px;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
     /* باقي الـ CSS يبقى كما هو */
     .s1 {
       margin-top: 150px;
-      /* زيادة الـ margin علشان النافبار الفيكسد */
       text-align: center;
     }
 
@@ -233,11 +246,11 @@
 
     /* Background */
     .hero-card {
+        margin-top: 25px;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 150px 20px 100px;
-      /* تعديل الـ padding علشان النافبار الفيكسد */
       position: relative;
     }
 
@@ -316,7 +329,6 @@
     .card-text h2 {
       font-size: 28px;
       color: #3e3b32;
-
       transition: all 0.2s ease-out;
     }
 
@@ -396,7 +408,6 @@
     }
 
     .skills-category {
-
       border-radius: 15px;
       padding: 30px;
       box-shadow: 0 10px 25px rgba(151, 141, 93, 0.3);
@@ -500,7 +511,6 @@
 
     .project-card:hover {
       transform: scale(1.1);
-      
     }
 
     .project-card:not(:hover) {
@@ -548,7 +558,7 @@
       background: #e68900;
     }
 
-      .s4 {
+    .s4 {
       background-color: #E7E1D7;
       padding: 80px 20px;
       text-align: center;
@@ -751,6 +761,228 @@
     section {
       padding-top: 50px;
     }
+
+    /* Media Queries للتصميم المتجاوب فقط للأجهزة الصغيرة */
+    @media (max-width: 1200px) {
+      .navbar {
+        width: 50%;
+      }
+      
+      .nav-links {
+        gap: 25px;
+      }
+      
+      .s1 h1 {
+        font-size: 70px;
+        margin-left: 50px;
+      }
+      
+      .about {
+        margin-left: 50px;
+      }
+      
+      .s2 h1 {
+        font-size: 60px;
+        margin-right: 150px;
+      }
+      
+      .s2 .about {
+        margin-left: 150px;
+        gap: 100px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .navbar {
+        width: 70%;
+      }
+      
+      .nav-links {
+        gap: 20px;
+      }
+      
+      .nav-links a {
+        font-size: 16px;
+      }
+      
+      .s1 h1 {
+        font-size: 60px;
+        margin-left: 30px;
+      }
+      
+      .about {
+        margin-left: 30px;
+        gap: 30px;
+      }
+      
+      .the-words p {
+        font-size: 20px;
+      }
+      
+      .s2 h1 {
+        font-size: 50px;
+        margin-right: 100px;
+      }
+      
+      .s2 .about {
+        margin-left: 100px;
+        gap: 70px;
+      }
+      
+      .s2 .the-words ul {
+        font-size: 24px;
+      }
+      
+      .project-card {
+        width: 350px;
+        margin-left: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        width: 90%;
+        padding: 10px 20px;
+        justify-content: space-between;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #000000;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 0 0 40px 40px;
+        box-shadow: 0 5px 15px #978d5d;
+        gap: 15px;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .logo {
+        margin-right: 0;
+      }
+      
+      .s1 h1 {
+        font-size: 40px;
+        margin-left: 20px;
+        text-align: center;
+      }
+      
+      .about {
+        flex-direction: column;
+        margin-left: 20px;
+        margin-right: 20px;
+        gap: 30px;
+      }
+      
+      .the-words p {
+        font-size: 18px;
+        text-align: center;
+      }
+      
+      .the-img img {
+        height: 250px;
+      }
+      
+      .s2 h1 {
+        font-size: 40px;
+        margin-right: 0;
+        text-align: center;
+      }
+      
+      .s2 .about {
+        flex-direction: column-reverse;
+        margin-left: 20px;
+        margin-right: 20px;
+        gap: 30px;
+      }
+      
+      .s2 .the-words ul {
+        font-size: 20px;
+        margin-top: 30px;
+      }
+      
+      .card-container {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+        text-align: center;
+      }
+      
+      .card-image {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+        margin-bottom: 20px;
+      }
+      
+      .card-image img {
+        width: 250px;
+        height: 220px;
+      }
+      
+      .projects-container {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+      
+      .project-card {
+        width: 100%;
+        max-width: 400px;
+        margin-left: 0;
+      }
+      
+      .contact-method,
+      .contact-sidebar {
+        width: 100%;
+        max-width: 350px;
+      }
+      
+      .contact-layout {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .s1 h1 {
+        font-size: 32px;
+      }
+      
+      .s2 h1 {
+        font-size: 32px;
+      }
+      
+      .the-img img,
+      .s2 .the-img img {
+        height: 200px;
+        width: auto;
+      }
+      
+      .card-image img {
+        width: 200px;
+        height: 180px;
+      }
+      
+      .contact-container h1 {
+        font-size: 2.5rem;
+      }
+      
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -767,13 +999,16 @@
         <img src="SCSCSCS.jpg" alt="logo" id="navLogo">
       </div>
 
-      <ul class="nav-links">
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
         <li class="active"><a href="#about">About</a></li>
         <li><a href="#Services">Services</a></li>
         <li><a href="#skill">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li class="contact"><a href="#contact">Contact</a></li>
-        <!-- تم إزالة المؤشر القديم -->
       </ul>
     </nav>
 
@@ -786,7 +1021,6 @@
         <img src="SCSCSCS.jpg" alt="My Photo" id="hero-image">
       </div>
       <div class="card-text">
-
         <h2>GODA ALAA</h2>
         <p>I'm Web Designer with a strong background in HTML, CSS, and JavaScript..</p>
         <span class="date">Sharkia, Egypt </span>
@@ -859,7 +1093,7 @@
           </div>
           <div class="skill-card">
             <div class="skill-content">
-              <h3 class="skill-title">JavaScript (ES6+)</h3>
+              <h3 class="skill-title">JavaScript </h3>
               <p class="skill-desc">Adding interactivity and dynamism to websites using modern JavaScript to enhance user experience.</p>
             </div>
           </div>
@@ -1023,6 +1257,20 @@
       const loadingImage = document.getElementById('loadingImage');
       const navLogo = document.getElementById('navLogo');
       const navbar = document.getElementById('mainNavbar');
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      // إضافة وظيفة القائمة المتنقلة
+      menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+      });
+
+      // إغلاق القائمة عند النقر على رابط
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('active');
+        });
+      });
 
       // حساب موقع النافبار الدقيق
       const navbarRect = navbar.getBoundingClientRect();
@@ -1072,7 +1320,7 @@
             navbar.style.boxShadow = '0 5px 15px rgba(151, 141, 93, 0.3)';
           } else {
             navbar.style.top = '20px';
-            navbar.style.boxShadow = '0 5px 15px 978d5d';
+            navbar.style.boxShadow = '0 5px 15px #978d5d';
           }
 
           lastScrollY = currentScrollY;
@@ -1287,58 +1535,62 @@
       let swiperScrollLock = false;
       let lastScrollY = window.scrollY;
       const projectsSection = document.querySelector('.projects-section');
-      const sectionTop = projectsSection.offsetTop;
-      const sectionHeight = projectsSection.offsetHeight;
+      if (projectsSection) {
+        const sectionTop = projectsSection.offsetTop;
+        const sectionHeight = projectsSection.offsetHeight;
 
-      function handleSwiperScroll() {
-        const currentScrollY = window.scrollY;
-        const scrollDelta = currentScrollY - lastScrollY;
+        function handleSwiperScroll() {
+          const currentScrollY = window.scrollY;
+          const scrollDelta = currentScrollY - lastScrollY;
 
-        const inSwiperSection = currentScrollY >= sectionTop &&
-          currentScrollY <= sectionTop + sectionHeight - window.innerHeight;
+          const inSwiperSection = currentScrollY >= sectionTop &&
+            currentScrollY <= sectionTop + sectionHeight - window.innerHeight;
 
-        if (inSwiperSection && !isInSwiperSection) {
-          isInSwiperSection = true;
-          swiperScrollLock = true;
-          window.scrollTo(0, sectionTop);
-        } else if (!inSwiperSection && isInSwiperSection) {
-          isInSwiperSection = false;
-          swiperScrollLock = false;
-        }
-
-        if (isInSwiperSection && swiperScrollLock) {
-          if (scrollDelta > 20 && !swiper.isEnd) {
-            swiper.slideNext();
-            lastScrollY = currentScrollY;
-          } else if (scrollDelta < -20 && !swiper.isBeginning) {
-            swiper.slidePrev();
-            lastScrollY = currentScrollY;
-          } else {
+          if (inSwiperSection && !isInSwiperSection) {
+            isInSwiperSection = true;
+            swiperScrollLock = true;
             window.scrollTo(0, sectionTop);
+          } else if (!inSwiperSection && isInSwiperSection) {
+            isInSwiperSection = false;
+            swiperScrollLock = false;
           }
-        } else {
-          lastScrollY = currentScrollY;
-        }
-      }
 
-      let isScrolling = false;
-      function throttleScroll() {
-        if (!isScrolling) {
-          isScrolling = true;
-          requestAnimationFrame(function () {
-            handleSwiperScroll();
-            isScrolling = false;
-          });
+          if (isInSwiperSection && swiperScrollLock) {
+            if (scrollDelta > 20 && !swiper.isEnd) {
+              swiper.slideNext();
+              lastScrollY = currentScrollY;
+            } else if (scrollDelta < -20 && !swiper.isBeginning) {
+              swiper.slidePrev();
+              lastScrollY = currentScrollY;
+            } else {
+              window.scrollTo(0, sectionTop);
+            }
+          } else {
+            lastScrollY = currentScrollY;
+          }
         }
-      }
 
-      window.addEventListener('scroll', throttleScroll, { passive: false });
+        let isScrolling = false;
+        function throttleScroll() {
+          if (!isScrolling) {
+            isScrolling = true;
+            requestAnimationFrame(function () {
+              handleSwiperScroll();
+              isScrolling = false;
+            });
+          }
+        }
+
+        window.addEventListener('scroll', throttleScroll, { passive: false });
+      }
+      
       ScrollTrigger.refresh();
     });
 
     window.onload = function () {
       window.scrollTo(0, 0);
     };
+    
     if (history.scrollRestoration) {
       history.scrollRestoration = 'manual';
     }
