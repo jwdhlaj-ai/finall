@@ -73,9 +73,9 @@
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     }
 
-    /* 🌿 Navbar Style - FIXED */
+    /* 🌿 Navbar Style - FIXED - IMPROVED FOR ZOOM */
     .navbar {
-      width: 37%;
+      width: min(90%, 600px); /* استخدام min() لجعل النافبار متجاوب مع التكبير */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -89,6 +89,8 @@
       left: 50%;
       transform: translateX(-50%);
       transition: all 0.3s ease;
+      padding: 10px 20px;
+      box-sizing: border-box;
     }
 
     /* Logo */
@@ -99,6 +101,7 @@
       object-fit: cover;
       margin-right: 30px;
       opacity: 0;
+      flex-shrink: 0; /* منع تصغير اللوجو عند التكبير */
     }
 
     /* Links */
@@ -106,20 +109,23 @@
       list-style: none;
       display: flex;
       position: relative;
-      gap: 35px;
+      gap: clamp(15px, 3vw, 35px); /* استخدام clamp لجعل المسافات متجاوبة */
       padding: 0;
       margin: 0;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .nav-links a {
       text-decoration: none;
       color: #3E3B32;
-      font-size: 18px;
+      font-size: clamp(14px, 2vw, 18px); /* استخدام clamp لجعل الخط متجاوب */
       font-weight: 500;
       padding: 5px 0;
       display: inline-block;
       transition: color 1.3s ease;
       position: relative;
+      white-space: nowrap; /* منع كسر النص عند التكبير */
     }
 
     /* ✅ تأثير الخط المتحرك تحت الروابط */
@@ -160,14 +166,16 @@
     .contact {
       background-color: white;
       border-radius: 20px;
-      width: 90px;
+      width: clamp(70px, 12vw, 90px); /* استخدام clamp لجعل العرض متجاوب */
       text-align: center;
       transition: 1.5s;
+      flex-shrink: 0; /* منع تصغير زر Contact عند التكبير */
     }
 
     .contact a {
       color: black !important;
       position: relative;
+      font-size: clamp(12px, 1.8vw, 16px); /* استخدام clamp لجعل الخط متجاوب */
     }
 
     /* ✅ تأثير الخط لزر Contact */
@@ -204,40 +212,48 @@
       right: 20px;
       top: 50%;
       transform: translateY(-50%);
+      z-index: 1001;
     }
 
-    /* باقي الـ CSS يبقى كما هو */
+    /* Sections Responsive - بنفس أسلوب الـ Skills */
     .s1 {
       margin-top: 150px;
       text-align: center;
+      padding: 0 20px;
     }
 
     .s1 h1 {
-      font-size: 90px;
+      font-size: clamp(32px, 8vw, 90px); /* استخدام clamp لجعل الخط متجاوب */
       color: #3E3B32;
       text-align: left;
-      margin-left: 90px;
+      margin-left: clamp(20px, 5vw, 90px);
+      max-width: 1200px;
+      margin: 0 auto 50px;
     }
 
     .about {
-      margin-left: 90px;
+      margin-left: clamp(20px, 5vw, 90px);
       margin-top: 50px;
       display: flex;
-      gap: 50px;
+      gap: clamp(20px, 5vw, 50px);
+      max-width: 1200px;
+      margin: 50px auto 0;
     }
 
     .the-words {
       color: #3E3B32;
+      flex: 1;
     }
 
     .the-words p {
-      font-size: 25px;
+      font-size: clamp(16px, 3vw, 25px); /* استخدام clamp لجعل الخط متجاوب */
       text-align: left;
       margin: 0;
+      line-height: 1.6;
     }
 
     .the-img img {
-      height: 350px;
+      height: clamp(200px, 40vw, 350px); /* استخدام clamp لجعل الصورة متجاوبة */
       border-radius: 20px;
       box-shadow: 25px 20px 25px #978d5d;
       opacity: 0;
@@ -246,7 +262,7 @@
 
     /* Background */
     .hero-card {
-        margin-top: 25px;
+      margin-top: 25px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -260,9 +276,10 @@
       display: flex;
       align-items: center;
       gap: 30px;
-      max-width: 900px;
-      height: 310px;
-      padding: 40px 40px 40px 300px;
+      max-width: min(90%, 900px); /* استخدام min() لجعل الكارد متجاوب */
+      height: auto;
+      min-height: 310px;
+      padding: 40px 40px 40px clamp(20px, 25vw, 300px); /* استخدام clamp لجعل padding متجاوب */
       border-radius: 20px;
       box-shadow: 25px 20px 25px #978d5d;
       position: relative;
@@ -270,6 +287,7 @@
       transition: transform .4s ease-out;
       transform-style: preserve-3d;
       cursor: pointer;
+      box-sizing: border-box;
     }
 
     /* تأثير Parallax للـ Card عند Hover */
@@ -294,15 +312,15 @@
     /* Image */
     .card-image {
       position: absolute;
-      left: -50px;
+      left: clamp(-40px, -5vw, -50px); /* استخدام clamp لجعل الموضع متجاوب */
       top: 92%;
       transform: translateY(-50%);
       transition: transform 2.2s ease-out;
     }
 
     .card-image img {
-      width: 300px;
-      height: 260px;
+      width: clamp(200px, 30vw, 300px); /* استخدام clamp لجعل الصورة متجاوبة */
+      height: clamp(180px, 25vw, 260px); /* استخدام clamp لجعل الصورة متجاوبة */
       object-fit: cover;
       border-radius: 15px;
       box-shadow: 0 8px 20px #978d5d;
@@ -320,14 +338,14 @@
 
     .card-text .date {
       color: #5f5c50;
-      font-size: 14px;
+      font-size: clamp(12px, 2vw, 14px); /* استخدام clamp لجعل الخط متجاوب */
       display: block;
       margin-bottom: 10px;
       transition: all 0.2s ease-out;
     }
 
     .card-text h2 {
-      font-size: 28px;
+      font-size: clamp(20px, 4vw, 28px); /* استخدام clamp لجعل الخط متجاوب */
       color: #3e3b32;
       transition: all 0.2s ease-out;
     }
@@ -336,6 +354,7 @@
       color: #5f5c50;
       line-height: 1.6;
       transition: all 0.2s ease-out;
+      font-size: clamp(14px, 2vw, 16px); /* استخدام clamp لجعل الخط متجاوب */
     }
 
     .s2 {
@@ -343,25 +362,30 @@
       text-align: center;
       min-height: 100vh;
       position: relative;
+      padding: 0 20px;
     }
 
     .s2 h1 {
-      font-size: 70px;
+      font-size: clamp(32px, 8vw, 70px); /* استخدام clamp لجعل الخط متجاوب */
       color: #3E3B32;
       text-align: right;
-      margin-right: 220px;
+      margin-right: clamp(20px, 10vw, 220px);
+      max-width: 1200px;
+      margin: 0 auto 50px;
     }
 
     .s2 .about {
-      margin-left: 220px;
+      margin-left: clamp(20px, 10vw, 220px);
       margin-top: 50px;
       display: flex;
-      gap: 170px;
+      gap: clamp(20px, 10vw, 170px);
+      max-width: 1200px;
+      margin: 50px auto 0;
     }
 
     .s2 .the-img img {
-      height: 350px;
-      width: 250px;
+      height: clamp(200px, 40vw, 350px); /* استخدام clamp لجعل الصورة متجاوبة */
+      width: clamp(150px, 25vw, 250px); /* استخدام clamp لجعل الصورة متجاوبة */
       border-radius: 20px;
       box-shadow: 25px 20px 25px #978d5d;
       opacity: 0;
@@ -370,11 +394,11 @@
 
     .s2 .the-words ul {
       margin-top: 50px;
-      font-size: 32px;
+      font-size: clamp(18px, 4vw, 32px); /* استخدام clamp لجعل الخط متجاوب */
       margin-left: 0;
       list-style: circle;
       text-align: left;
-      padding-left: 0;
+      padding-left: 20px;
     }
 
     .s2 .the-words li {
@@ -394,7 +418,7 @@
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 4vw, 2rem); /* استخدام clamp لجعل الخط متجاوب */
       margin-bottom: 30px;
       font-weight: bold;
     }
@@ -414,7 +438,7 @@
     }
 
     .category-title {
-      font-size: 1.8rem;
+      font-size: clamp(1.3rem, 3vw, 1.8rem); /* استخدام clamp لجعل الخط متجاوب */
       color: #3E3B32;
       margin-bottom: 30px;
       font-weight: bold;
@@ -443,7 +467,7 @@
     }
 
     .skill-title {
-      font-size: 1.3rem;
+      font-size: clamp(1rem, 2.5vw, 1.3rem); /* استخدام clamp لجعل الخط متجاوب */
       font-weight: bold;
       color: #3E3B32;
       transition: transform 0.4s ease;
@@ -457,7 +481,7 @@
       padding: 20px;
       background: #949d9c;
       color: #fff;
-      font-size: 1rem;
+      font-size: clamp(0.8rem, 2vw, 1rem); /* استخدام clamp لجعل الخط متجاوب */
       line-height: 1.4;
       transition: bottom 0.4s ease;
       border-bottom-left-radius: 10px;
@@ -484,7 +508,7 @@
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 4vw, 2rem); /* استخدام clamp لجعل الخط متجاوب */
       margin-bottom: 40px;
       color: #333;
     }
@@ -494,6 +518,8 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
       justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .project-card {
@@ -504,8 +530,7 @@
       border-radius: 12px;
       padding: 20px;
       transition: transform 1.3s, box-shadow 1.3s ease-in-out;
-      width: 400px;
-      margin-left: 40px;
+      width: 100%;
       position: relative;
     }
 
@@ -527,7 +552,7 @@
 
     .project-card h3 {
       margin: 10px 0;
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 2.5vw, 1.2rem); /* استخدام clamp لجعل الخط متجاوب */
       color: #333;
       justify-content: center;
     }
@@ -535,7 +560,7 @@
     .project-card p {
       flex-grow: 1;
       color: #555;
-      font-size: 0.9rem;
+      font-size: clamp(0.8rem, 2vw, 0.9rem); /* استخدام clamp لجعل الخط متجاوب */
       margin-bottom: 15px;
       justify-content: center;
       justify-self: center;
@@ -552,6 +577,7 @@
       border-radius: 6px;
       text-decoration: none;
       transition: background 1.3s;
+      font-size: clamp(0.8rem, 2vw, 0.9rem); /* استخدام clamp لجعل الخط متجاوب */
     }
 
     .project-card a:hover {
@@ -570,7 +596,7 @@
     }
 
     .contact-container h1 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 6vw, 3rem); /* استخدام clamp لجعل الخط متجاوب */
       color: #3E3B32;
       margin-bottom: 60px;
       font-weight: bold;
@@ -599,7 +625,7 @@
       display: flex;
       align-items: center;
       gap: 5px;
-      width: 350px;
+      width: clamp(280px, 30vw, 350px); /* استخدام clamp لجعل العرض متجاوب */
     }
 
     .contact-method:hover {
@@ -608,7 +634,7 @@
     }
 
     .contact-method i {
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem); /* استخدام clamp لجعل الأيقونة متجاوبة */
       color: #3E3B32;
       width: 60px;
     }
@@ -621,13 +647,13 @@
     .contact-method h3 {
       color: #3E3B32;
       margin: 0 0 8px 0;
-      font-size: 1.3rem;
+      font-size: clamp(1rem, 2.5vw, 1.3rem); /* استخدام clamp لجعل الخط متجاوب */
     }
 
     .contact-method p {
       color: #3E3B32;
       margin: 0;
-      font-size: 1.1rem;
+      font-size: clamp(0.9rem, 2vw, 1.1rem); /* استخدام clamp لجعل الخط متجاوب */
       font-weight: 500;
     }
 
@@ -637,7 +663,7 @@
       padding: 30px;
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(151, 141, 93, 0.2);
-      width: 350px;
+      width: clamp(280px, 30vw, 350px); /* استخدام clamp لجعل العرض متجاوب */
     }
 
     .contact-sidebar:hover {
@@ -648,7 +674,7 @@
     .contact-sidebar h3 {
       color: #3E3B32;
       margin-bottom: 25px;
-      font-size: 1.5rem;
+      font-size: clamp(1.2rem, 3vw, 1.5rem); /* استخدام clamp لجعل الخط متجاوب */
     }
 
     .social-grid {
@@ -676,85 +702,13 @@
     }
 
     .social-item i {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 3vw, 2rem); /* استخدام clamp لجعل الأيقونة متجاوبة */
       margin-bottom: 8px;
     }
 
     .social-item span {
-      font-size: 0.9rem;
+      font-size: clamp(0.8rem, 1.8vw, 0.9rem); /* استخدام clamp لجعل الخط متجاوب */
       font-weight: 500;
-    }
-
-    /* رابط البريد الإلكتروني قابل للنقر */
-    .email-icon {
-      cursor: pointer;
-      transition: color 0.3s;
-      font-size: 20px;
-    }
-
-    .email-icon:hover {
-      color: #CB997E;
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: #000000;
-      width: 50px;
-      height: 50px;
-      border: none;
-      transition: 1.5s;
-    }
-
-    .swiper-button-next:hover,
-    .swiper-button-prev:hover {
-      transform: scale(.9);
-      color: #CB997E;
-    }
-
-    .swiper-button-next:after,
-    .swiper-button-prev:after {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    /* تأثير الـ Motion Blur للسلايدر */
-    @keyframes motion-blur {
-      0% {
-        filter: url(#blur0);
-        transform: scale(1, 1);
-      }
-
-      15% {
-        filter: url(#blur1);
-        transform: scale(1, 0.98);
-      }
-
-      30% {
-        filter: url(#blur2);
-        transform: scale(1, 0.93);
-      }
-
-      45% {
-        filter: url(#blur3);
-        transform: scale(1.1, 0.9);
-      }
-
-      60% {
-        filter: url(#blur4);
-        transform: scale(1.2, 0.88);
-      }
-
-      75%,
-      100% {
-        filter: url(#blur5);
-        transform: scale(1.35, 0.85);
-      }
-    }
-
-    .swiper-transition {
-      animation:
-        motion-blur 0.1s linear forwards,
-        motion-blur 0.4s linear reverse forwards 0.1s;
     }
 
     /* Section padding علشان النافبار الفيكسد */
@@ -762,87 +716,103 @@
       padding-top: 50px;
     }
 
-    /* Media Queries للتصميم المتجاوب فقط للأجهزة الصغيرة */
+    /* Media Queries للتصميم المتجاوب - بنفس أسلوب الـ Skills */
     @media (max-width: 1200px) {
       .navbar {
-        width: 50%;
+        width: min(90%, 600px);
       }
       
       .nav-links {
-        gap: 25px;
+        gap: clamp(15px, 2.5vw, 25px);
       }
       
       .s1 h1 {
-        font-size: 70px;
-        margin-left: 50px;
+        font-size: clamp(32px, 7vw, 70px);
+        margin-left: clamp(20px, 4vw, 50px);
       }
       
       .about {
-        margin-left: 50px;
+        margin-left: clamp(20px, 4vw, 50px);
       }
       
       .s2 h1 {
-        font-size: 60px;
-        margin-right: 150px;
+        font-size: clamp(32px, 6vw, 60px);
+        margin-right: clamp(20px, 8vw, 150px);
       }
       
       .s2 .about {
-        margin-left: 150px;
-        gap: 100px;
+        margin-left: clamp(20px, 8vw, 150px);
+        gap: clamp(20px, 8vw, 100px);
+      }
+      
+      .project-card {
+        width: 100%;
       }
     }
 
     @media (max-width: 992px) {
       .navbar {
-        width: 70%;
+        width: min(90%, 600px);
       }
       
       .nav-links {
-        gap: 20px;
+        gap: clamp(15px, 2vw, 20px);
       }
       
       .nav-links a {
-        font-size: 16px;
+        font-size: clamp(14px, 1.8vw, 16px);
       }
       
       .s1 h1 {
-        font-size: 60px;
-        margin-left: 30px;
+        font-size: clamp(28px, 6vw, 60px);
+        margin-left: clamp(15px, 3vw, 30px);
       }
       
       .about {
-        margin-left: 30px;
-        gap: 30px;
+        margin-left: clamp(15px, 3vw, 30px);
+        gap: clamp(15px, 3vw, 30px);
       }
       
       .the-words p {
-        font-size: 20px;
+        font-size: clamp(16px, 2.5vw, 20px);
       }
       
       .s2 h1 {
-        font-size: 50px;
-        margin-right: 100px;
+        font-size: clamp(28px, 5vw, 50px);
+        margin-right: clamp(15px, 6vw, 100px);
       }
       
       .s2 .about {
-        margin-left: 100px;
-        gap: 70px;
+        margin-left: clamp(15px, 6vw, 100px);
+        gap: clamp(15px, 6vw, 70px);
       }
       
       .s2 .the-words ul {
-        font-size: 24px;
+        font-size: clamp(18px, 3vw, 24px);
       }
       
       .project-card {
-        width: 350px;
-        margin-left: 20px;
+        width: 100%;
+      }
+      
+      .card-container {
+        padding: 40px 40px 40px clamp(20px, 25vw, 280px);
+      }
+      
+      .card-image {
+        left: clamp(-30px, -4vw, -40px);
+      }
+      
+      .card-image img {
+        width: clamp(180px, 25vw, 280px);
+        height: clamp(160px, 22vw, 240px);
       }
     }
 
     @media (max-width: 768px) {
       .navbar {
-        width: 90%;
-        padding: 10px 20px;
+        width: min(95%, 500px);
+        padding: 10px 15px;
         justify-content: space-between;
       }
       
@@ -873,43 +843,51 @@
       }
       
       .s1 h1 {
-        font-size: 40px;
-        margin-left: 20px;
+        font-size: clamp(24px, 5vw, 40px);
+        margin-left: 0;
         text-align: center;
       }
       
       .about {
         flex-direction: column;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 0;
+        margin-right: 0;
         gap: 30px;
+        padding: 0 20px;
       }
       
       .the-words p {
-        font-size: 18px;
+        font-size: clamp(14px, 2.5vw, 18px);
         text-align: center;
       }
       
       .the-img img {
-        height: 250px;
+        height: clamp(180px, 35vw, 250px);
       }
       
       .s2 h1 {
-        font-size: 40px;
+        font-size: clamp(24px, 5vw, 40px);
         margin-right: 0;
         text-align: center;
       }
       
       .s2 .about {
         flex-direction: column-reverse;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 0;
+        margin-right: 0;
         gap: 30px;
+        padding: 0 20px;
       }
       
       .s2 .the-words ul {
-        font-size: 20px;
+        font-size: clamp(16px, 3vw, 20px);
         margin-top: 30px;
+        text-align: center;
+        padding-left: 0;
+      }
+      
+      .s2 .the-words li {
+        text-align: center;
       }
       
       .card-container {
@@ -928,8 +906,8 @@
       }
       
       .card-image img {
-        width: 250px;
-        height: 220px;
+        width: clamp(150px, 30vw, 250px);
+        height: clamp(140px, 25vw, 220px);
       }
       
       .projects-container {
@@ -940,7 +918,6 @@
       .project-card {
         width: 100%;
         max-width: 400px;
-        margin-left: 0;
       }
       
       .contact-method,
@@ -953,34 +930,79 @@
         flex-direction: column;
         align-items: center;
       }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 576px) {
       .s1 h1 {
-        font-size: 32px;
+        font-size: clamp(20px, 6vw, 32px);
       }
       
       .s2 h1 {
-        font-size: 32px;
+        font-size: clamp(20px, 6vw, 32px);
       }
       
       .the-img img,
       .s2 .the-img img {
-        height: 200px;
+        height: clamp(150px, 35vw, 200px);
         width: auto;
       }
       
       .card-image img {
-        width: 200px;
-        height: 180px;
+        width: clamp(120px, 35vw, 200px);
+        height: clamp(110px, 30vw, 180px);
       }
       
       .contact-container h1 {
-        font-size: 2.5rem;
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
       }
       
       .social-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .the-words p {
+        font-size: clamp(12px, 2.5vw, 16px);
+      }
+      
+      .s2 .the-words ul {
+        font-size: clamp(14px, 3vw, 18px);
+      }
+      
+      .skills-category {
+        padding: 20px;
+      }
+      
+      .skill-content {
+        height: 180px;
+        padding: 20px 15px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .s1 h1 {
+        font-size: clamp(18px, 7vw, 28px);
+      }
+      
+      .s2 h1 {
+        font-size: clamp(18px, 7vw, 28px);
+      }
+      
+      .the-words p {
+        font-size: clamp(10px, 3vw, 14px);
+      }
+      
+      .s2 .the-words ul {
+        font-size: clamp(12px, 4vw, 16px);
+      }
+      
+      .contact-method,
+      .contact-sidebar {
+        width: 100%;
+        padding: 20px;
       }
     }
   </style>
@@ -993,7 +1015,7 @@
   </div>
 
   <main>
-    <!-- ✅ Navbar - FIXED -->
+    <!-- ✅ Navbar - FIXED - IMPROVED -->
     <nav class="navbar" id="mainNavbar">
       <div class="logo">
         <img src="SCSCSCS.jpg" alt="logo" id="navLogo">
@@ -1039,8 +1061,8 @@
           only look great butalso deliver smooth experiences across all devices. <br>
           Over the past 10 project I've worked on different projects ranging from simple <br>
           landing pages to full websites.My focus is always on clean design, accessibility, <br>
-          and performance.I'm always learning new tools and techniques to improve my craft, <br>
-          and I enjoy turning ideas into interactive, visually appealing digital products. <br>
+          and performance.I'm always learning new tools and techniques to improve my  <br>
+         craft, and I enjoy turning ideas into interactive, visually appealing digital products. <br>
         </p>
       </div>
       <div class="the-img">
@@ -1416,95 +1438,6 @@
         });
       }
 
-      function initGalleryHover() {
-        const items = document.querySelectorAll('.gallery-wrap .item');
-        items.forEach(item => {
-          item.addEventListener('mouseenter', function () {
-            items.forEach(otherItem => {
-              if (otherItem !== item) {
-                otherItem.style.flex = '0.8';
-                otherItem.style.transform = 'scale(1)';
-              }
-            });
-            item.style.flex = '7';
-            item.style.transform = 'scale(1.02)';
-          });
-          item.addEventListener('mouseleave', function () {
-            items.forEach(otherItem => {
-              otherItem.style.flex = '0.8';
-              otherItem.style.transform = 'scale(1)';
-            });
-          });
-        });
-      }
-
-      const swiper = new Swiper('.swiper-container', {
-        direction: 'horizontal',
-        slidesPerView: 1,
-        spaceBetween: 0,
-        mousewheel: false,
-        effect: 'slide',
-        keyboard: { enabled: true, onlyInViewport: true },
-        pagination: { el: '.swiper-pagination', clickable: true, type: 'bullets' },
-        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-        speed: 600,
-        grabCursor: true,
-        allowTouchMove: true,
-        resistance: true,
-        resistanceRatio: 0.85,
-        loop: true,
-        on: {
-          init: function () {
-            setTimeout(initGalleryHover, 100);
-          },
-          slideChange: function () {
-            setTimeout(initGalleryHover, 100);
-          }
-        }
-      });
-
-      // ✨ تأثير الـ Motion Blur الجديد
-      swiper.on('slideChangeTransitionStart', function () {
-        const activeGallery = document.querySelector('.swiper-slide-active .gallery-wrap');
-        if (activeGallery) {
-          activeGallery.classList.add('swiper-transition');
-        }
-      });
-
-      swiper.on('slideChangeTransitionEnd', function () {
-        const activeGallery = document.querySelector('.swiper-slide-active .gallery-wrap');
-        if (activeGallery) {
-          setTimeout(() => {
-            activeGallery.classList.remove('swiper-transition');
-          }, 500);
-        }
-      });
-
-      // ✨ التأثير الجديد: السحب السريع مع التصغير وقت التنقل بين السلايدات
-      swiper.on('slideChangeTransitionStart', function () {
-        const activeSlide = document.querySelector('.swiper-slide-active');
-        const prevSlide = document.querySelector('.swiper-slide-prev');
-        const nextSlide = document.querySelector('.swiper-slide-next');
-
-        if (prevSlide) {
-          gsap.fromTo(prevSlide,
-            { scale: 1, opacity: 1, x: 0 },
-            { scale: 0.8, opacity: 0, x: -200, duration: 0.35, ease: "power3.inOut" }
-          );
-        }
-        if (nextSlide) {
-          gsap.fromTo(nextSlide,
-            { scale: 1, opacity: 1, x: 0 },
-            { scale: 0.8, opacity: 0, x: 200, duration: 0.35, ease: "power3.inOut" }
-          );
-        }
-
-        gsap.fromTo(activeSlide,
-          { scale: 0.9, opacity: 0, x: swiper.activeIndex > swiper.previousIndex ? 200 : -200 },
-          { scale: 1, opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }
-        );
-      });
-
       gsap.fromTo('.s1 .the-img img',
         { opacity: 0, x: 100 },
         {
@@ -1531,59 +1464,6 @@
         }
       );
 
-      let isInSwiperSection = false;
-      let swiperScrollLock = false;
-      let lastScrollY = window.scrollY;
-      const projectsSection = document.querySelector('.projects-section');
-      if (projectsSection) {
-        const sectionTop = projectsSection.offsetTop;
-        const sectionHeight = projectsSection.offsetHeight;
-
-        function handleSwiperScroll() {
-          const currentScrollY = window.scrollY;
-          const scrollDelta = currentScrollY - lastScrollY;
-
-          const inSwiperSection = currentScrollY >= sectionTop &&
-            currentScrollY <= sectionTop + sectionHeight - window.innerHeight;
-
-          if (inSwiperSection && !isInSwiperSection) {
-            isInSwiperSection = true;
-            swiperScrollLock = true;
-            window.scrollTo(0, sectionTop);
-          } else if (!inSwiperSection && isInSwiperSection) {
-            isInSwiperSection = false;
-            swiperScrollLock = false;
-          }
-
-          if (isInSwiperSection && swiperScrollLock) {
-            if (scrollDelta > 20 && !swiper.isEnd) {
-              swiper.slideNext();
-              lastScrollY = currentScrollY;
-            } else if (scrollDelta < -20 && !swiper.isBeginning) {
-              swiper.slidePrev();
-              lastScrollY = currentScrollY;
-            } else {
-              window.scrollTo(0, sectionTop);
-            }
-          } else {
-            lastScrollY = currentScrollY;
-          }
-        }
-
-        let isScrolling = false;
-        function throttleScroll() {
-          if (!isScrolling) {
-            isScrolling = true;
-            requestAnimationFrame(function () {
-              handleSwiperScroll();
-              isScrolling = false;
-            });
-          }
-        }
-
-        window.addEventListener('scroll', throttleScroll, { passive: false });
-      }
-      
       ScrollTrigger.refresh();
     });
 
@@ -1594,18 +1474,6 @@
     if (history.scrollRestoration) {
       history.scrollRestoration = 'manual';
     }
-
-    // في الـ JavaScript
-    document.querySelectorAll('.gallery-wrap .item').forEach(item => {
-      item.style.cursor = 'pointer';
-
-      item.addEventListener('click', function () {
-        const link = this.getAttribute('data-link');
-        if (link) {
-          window.open(link, '_blank');
-        }
-      });
-    })
   </script>
 </body>
 
