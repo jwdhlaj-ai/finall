@@ -96,11 +96,11 @@
 
     /* Logo */
     .navbar .logo img {
-      height: 45px;
-      width: 45px;
+       height: 55px;
+      width: 55px;
       border-radius: 50%;
       object-fit: cover;
-      margin-right: 30px;
+      margin-right: 51px;
       opacity: 0;
       flex-shrink: 0; /* منع تصغير اللوجو عند التكبير */
     }
@@ -1030,7 +1030,7 @@
       </button>
 
       <ul class="nav-links" id="navLinks">
-        <li class="active"><a href="#about">About</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#Services">Services</a></li>
         <li><a href="#skill">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -1330,6 +1330,7 @@
               initCardParallax();
               initNavbarScroll();
               initNavbarClick();
+              // لا نحدد أي عنصر نشط في البداية
             }
           });
       }, 1000);
@@ -1384,8 +1385,13 @@
         // تحديث العنصر النشط عند التمرير
         window.addEventListener('scroll', () => {
           const sections = document.querySelectorAll('section');
+          const navItems = document.querySelectorAll('.nav-links li');
           let currentSection = '';
 
+          // إزالة الكلاس النشط من جميع العناصر أولاً
+          navItems.forEach(item => item.classList.remove('active'));
+
+          // تحديد القسم الحالي بناءً على موقع التمرير
           sections.forEach(section => {
             const sectionTop = section.offsetTop - 100;
             const sectionHeight = section.clientHeight;
@@ -1394,13 +1400,14 @@
             }
           });
 
-          navItems.forEach(item => {
-            item.classList.remove('active');
-            const link = item.querySelector('a');
-            if (link && link.getAttribute('href') === `#${currentSection}`) {
-              item.classList.add('active');
+          // إضافة الكلاس النشط للرابط المناسب فقط إذا كان هناك قسم نشط
+          if (currentSection) {
+            const activeLink = document.querySelector(`.nav-links a[href="#${currentSection}"]`);
+            if (activeLink) {
+              activeLink.parentElement.classList.add('active');
             }
-          });
+          }
+          // لا نضيف أي كلاس نشط إذا لم يكن هناك قسم نشط
         });
       }
 
