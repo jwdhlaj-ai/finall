@@ -81,9 +81,9 @@
     /* --- Navbar Style (FIXED RESPONSIVE) --- */
     .navbar {
       width: 90%;
-      max-width: 700px; /* زيادة العرض قليلاً لاستيعاب العناصر */
+      max-width: 700px;
       display: flex;
-      justify-content: space-between; /* توزيع العناصر بين اللوجو والروابط */
+      justify-content: space-between;
       align-items: center;
       margin-top: 20px;
       background-color: rgb(255, 255, 255);
@@ -95,14 +95,14 @@
       left: 50%;
       transform: translateX(-50%);
       transition: all 0.3s ease;
-      padding: 10px 30px; /* زيادة الحواف */
+      padding: 10px 30px;
       box-sizing: border-box;
-      min-height: 70px; /* ضمان ارتفاع مناسب */
+      min-height: 70px;
     }
 
     /* Logo styling */
     .navbar .logo {
-      flex-shrink: 0; /* منع التصغير */
+      flex-shrink: 0;
     }
 
     .navbar .logo img {
@@ -117,7 +117,7 @@
     /* Desktop Nav Links */
     .nav-links {
       list-style: none;
-      display: flex; /* الافتراضي ظهور أفقي */
+      display: flex;
       position: relative;
       gap: 20px;
       padding: 0;
@@ -177,7 +177,6 @@
       font-size: 14px;
     }
     
-    /* منع تأثير الخط السفلي للـ Contact Button */
     .contact a::before { display: none; }
 
     .contact:hover {
@@ -187,7 +186,7 @@
 
     /* --- Mobile Menu Toggle --- */
     .menu-toggle {
-      display: none; /* مخفي على الشاشات الكبيرة */
+      display: none;
       background: none;
       border: none;
       color: #3E3B32;
@@ -207,7 +206,7 @@
     .s1 h1 {
       font-size: clamp(40px, 6vw, 80px);
       color: #3E3B32;
-      text-align: center; /* توسيط العنوان للريسبونسف */
+      text-align: center;
       margin-bottom: 40px;
       max-width: 900px;
       margin-left: auto;
@@ -219,7 +218,7 @@
       gap: 40px;
       max-width: 1200px;
       margin: 0 auto 50px;
-      align-items: center; /* محاذاة العناصر في المنتصف */
+      align-items: center;
     }
 
     .the-words {
@@ -241,12 +240,12 @@
       border-radius: 20px;
       box-shadow: 25px 20px 25px #978d5d;
       opacity: 0;
-      transform: translateX(100px); /* الحركة الافتراضية */
+      transform: translateX(100px);
     }
 
     /* Hero Card */
     .hero-card {
-      margin-top: 100px; /* المسافة تحت النافبار */
+      margin-top: 100px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -278,7 +277,7 @@
       width: 250px;
       height: 250px;
       flex-shrink: 0;
-      transform: translateY(0); /* تصحيح للريسبونسف */
+      transform: translateY(0);
     }
 
     .card-image img {
@@ -329,7 +328,7 @@
     }
 
     .s2 .about {
-      flex-direction: row-reverse; /* الصورة يمين */
+      flex-direction: row-reverse;
     }
 
     .s2 .the-words ul {
@@ -402,7 +401,7 @@
       bottom: -100%;
       width: 100%;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.95); /* لون غامق مقروء */
+      background: rgba(255, 255, 255, 0.95);
       color: #050505;
       font-size: 0.9rem;
       line-height: 1.4;
@@ -437,19 +436,20 @@
       gap: 20px;
       max-width: 1400px;
       margin: 0 auto;
-      align-items: stretch;
+      align-items: stretch; /* هذا السطر يجعل جميع الكروت في الصف الواحد بنفس الارتفاع */
     }
 
     .project-card {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-between; /* يوزع المسافة ليدفع الزر للأسفل */
       background: #d8c3a5;
       border-radius: 12px;
       padding: 20px;
       transition: transform 1.0s, box-shadow 1.0s;
       width: 100%;
-      height: 100%;
+      height: 100%; /* يأخذ ارتفاع العمود بالكامل */
+      box-sizing: border-box; /* لضمان أن البادنج لا يؤثر على الحجم */
     }
 
     .project-card:hover {
@@ -472,7 +472,7 @@
     }
 
     .project-card p {
-      flex-grow: 1;
+      flex-grow: 1; /* يملأ الفراغ المتاح بين العنوان والزر */
       color: #555;
       font-size: 0.9rem;
       margin-bottom: 20px;
@@ -509,7 +509,7 @@
     }
 
     .contact-container h1 {
-      font-size: clamp(2rem, 6vw, 3rem); /* استخدام clamp لجعل الخط متجاوب */
+      font-size: clamp(2rem, 6vw, 3rem);
       color: #3E3B32;
       margin-bottom: 60px;
       font-weight: bold;
@@ -538,7 +538,7 @@
       display: flex;
       align-items: center;
       gap: 5px;
-      width: clamp(280px, 30vw, 350px); /* استخدام clamp لجعل العرض متجاوب */
+      width: clamp(280px, 30vw, 350px);
     }
 
     .contact-method:hover {
@@ -547,7 +547,7 @@
     }
 
     .contact-method i {
-      font-size: clamp(1.8rem, 4vw, 2.5rem); /* استخدام clamp لجعل الأيقونة متجاوبة */
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       color: #3E3B32;
       width: 60px;
     }
@@ -560,13 +560,13 @@
     .contact-method h3 {
       color: #3E3B32;
       margin: 0 0 8px 0;
-      font-size: clamp(1rem, 2.5vw, 1.3rem); /* استخدام clamp لجعل الخط متجاوب */
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
     }
 
     .contact-method p {
       color: #3E3B32;
       margin: 0;
-      font-size: clamp(0.9rem, 2vw, 1.1rem); /* استخدام clamp لجعل الخط متجاوب */
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
       font-weight: 500;
     }
 
@@ -576,7 +576,7 @@
       padding: 30px;
       transition: all 1.3s ease;
       box-shadow: 0 5px 15px rgba(151, 141, 93, 0.2);
-      width: clamp(280px, 30vw, 350px); /* استخدام clamp لجعل العرض متجاوب */
+      width: clamp(280px, 30vw, 350px);
     }
 
     .contact-sidebar:hover {
@@ -587,7 +587,7 @@
     .contact-sidebar h3 {
       color: #3E3B32;
       margin-bottom: 25px;
-      font-size: clamp(1.2rem, 3vw, 1.5rem); /* استخدام clamp لجعل الخط متجاوب */
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
     }
 
     .social-grid {
@@ -616,16 +616,15 @@
     }
 
     .social-item i {
-      font-size: clamp(1.5rem, 3vw, 2rem); /* استخدام clamp لجعل الأيقونة متجاوبة */
+      font-size: clamp(1.5rem, 3vw, 2rem);
       margin-bottom: 8px;
     }
 
     .social-item span {
-      font-size: clamp(0.8rem, 1.8vw, 0.9rem); /* استخدام clamp لجعل الخط متجاوب */
+      font-size: clamp(0.8rem, 1.8vw, 0.9rem);
       font-weight: 500;
     }
 
-    /* Section padding علشان النافبار الفيكسد */
     section {
       padding-top: 50px;
     }
@@ -648,28 +647,25 @@
 
     /* Mobile Devices */
     @media (max-width: 768px) {
-      /* Navbar Fixes */
       .navbar {
         padding: 10px 15px;
         justify-content: space-between;
       }
 
-      /* إظهار زر القائمة */
       .menu-toggle {
         display: block;
-        order: 3; /* وضعه في أقصى اليمين */
+        order: 3;
       }
 
-      /* إخفاء القائمة الأفقية */
       .nav-links {
         display: none;
         position: absolute;
-        top: 100%; /* تحت النافبار مباشرة */
+        top: 100%;
         left: 0;
         width: 100%;
-        background-color: #fff; /* لون خلفية أبيض */
+        background-color: #fff;
         flex-direction: column;
-        align-items: center; /* توسيط العناصر */
+        align-items: center;
         padding: 20px 0;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         gap: 15px;
@@ -680,7 +676,6 @@
         transition: all 0.3s ease;
       }
 
-      /* إظهار القائمة عند التفعيل */
       .nav-links.active {
         display: flex;
         opacity: 1;
@@ -698,21 +693,20 @@
       }
 
       .contact {
-        width: 80%; /* زر عريض في الموبايل */
+        width: 80%;
         margin: 10px auto;
       }
 
-      /* Layout Fixes */
       .s1, .s2 {
         padding: 20px 15px;
       }
       
       .hero-card {
-        padding: 100px 15px 50px; /* مسافة أعلى للنافبار */
+        padding: 100px 15px 50px;
       }
 
       .about {
-        flex-direction: column; /* تكديس العناصر فوق بعض */
+        flex-direction: column;
         gap: 30px;
         text-align: center;
       }
@@ -722,16 +716,15 @@
       }
       
       .s2 .about {
-        flex-direction: column-reverse; /* الصورة تحت النص */
+        flex-direction: column-reverse;
       }
 
       .s2 .the-words ul {
         text-align: center;
         padding-left: 0;
-        list-style: none; /* إزالة النقاط في الموبايل */
+        list-style: none;
       }
 
-      /* Hero Card Mobile Fix */
       .card-container {
         flex-direction: column;
         padding: 40px 20px;
@@ -744,9 +737,8 @@
         margin-bottom: 20px;
       }
 
-      /* Projects Grid Mobile */
       .projects-container {
-        grid-template-columns: 1fr; /* عمود واحد */
+        grid-template-columns: 1fr;
       }
       
       .contact-layout {
@@ -784,7 +776,7 @@
   </div>
 
   <main>
-    <!-- ✅ Navbar - FIXED RESPONSIVE -->
+    <!-- Navbar -->
     <nav class="navbar" id="mainNavbar">
       <div class="logo">
         <a href="#hero-card"> <img src="SCSCSCS.jpg" alt="logo" id="navLogo">  </a>
@@ -961,7 +953,6 @@
 
     <div class="projects-container">
 
-
   <!-- Project 1 -->
       <div class="project-card">
         <img src="WhatsApp Image 2025-11-27 at 21.49.14_87b8957f.jpg" alt="Project 4">
@@ -1023,6 +1014,29 @@ A clean and user-friendly contact form interface designed using HTML and CSS,
                 </p>
                 <a href="https://jwdhlaj-ai.github.io/exam/" target="_blank">View Project</a>
                 </div>
+
+    <!-- Project 7 -->
+    <div class="project-card">
+      <img src="Screenshot (204).png" alt="Project 7">
+      <h3> color pattern</h3>
+        <p>
+        A CSS-based color pattern demo showcasing dynamic gradients and structured layouts. Built with pure HTML and CSS,
+         it highlights color theory, pattern repetition, and responsive design—ideal for UI backgrounds and web design explorations.</p>
+      <a href="https://jwdhlaj-ai.github.io/color-pattern/" target="_blank">View Project</a>
+    </div>
+
+    <!-- Project 8 -->
+    <div class="project-card">
+      <img src="Screenshot (198).png" alt="Project 8">
+      <h3>Web Banner</h3>
+      <p>This project is a clean and interactive promotional web banner built with HTML and CSS, designed to deliver a clear and engaging marketing message while emphasizing clarity, readability, and responsiveness.
+
+Brand Logo: 
+Main Message: Pure Clean. Pure Earth.
+Short Description: Plant‑based laundry solutions.
+Call-to-Action (CTA): Shop the Range</p>
+      <a href="https://jwdhlaj-ai.github.io/web-baner/" target="_blank">View Project</a>
+    </div>
 
     </div>
   </section>
@@ -1092,7 +1106,6 @@ A clean and user-friendly contact form interface designed using HTML and CSS,
       if(menuToggle) {
         menuToggle.addEventListener('click', function() {
           navLinks.classList.toggle('active');
-          // تغيير أيقونة القائمة (اختياري)
           const icon = this.querySelector('i');
           if(navLinks.classList.contains('active')) {
             icon.classList.remove('fa-bars');
@@ -1104,11 +1117,9 @@ A clean and user-friendly contact form interface designed using HTML and CSS,
         });
       }
 
-      // إغلاق القائمة عند النقر على رابط
       document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', function() {
           navLinks.classList.remove('active');
-          // إعادة أيقونة القائمة لحالتها الأصلية
           const icon = menuToggle.querySelector('i');
           if(icon) {
             icon.classList.remove('fa-times');
@@ -1117,9 +1128,7 @@ A clean and user-friendly contact form interface designed using HTML and CSS,
         });
       });
 
-      // Loading Animation
       const navbarRect = navbar.getBoundingClientRect();
-      // نحتاج لحساب الموقع بعد ظهور العناصر، لذا ننتظر قليلاً
       setTimeout(() => {
         const moveTimeline = gsap.timeline();
         moveTimeline
@@ -1144,13 +1153,12 @@ A clean and user-friendly contact form interface designed using HTML and CSS,
           });
       }, 1000);
 
-      // Navbar Scroll Effect
       function initNavbarScroll() {
         window.addEventListener('scroll', () => {
           const currentScrollY = window.scrollY;
 
           if (currentScrollY > 50) {
-            navbar.style.padding = '5px 20px'; /* تصغير النافبار عند السكرول */
+            navbar.style.padding = '5px 20px';
             navbar.style.top = '5px';
             navbar.style.boxShadow = '0 2px 10px rgba(151, 141, 93, 0.4)';
           } else {
@@ -1161,7 +1169,6 @@ A clean and user-friendly contact form interface designed using HTML and CSS,
         });
       }
 
-      // Active Link Click Handling
       function initNavbarClick() {
         const navLinksItems = document.querySelectorAll('.nav-links a');
         const navItems = document.querySelectorAll('.nav-links li');
@@ -1176,7 +1183,6 @@ A clean and user-friendly contact form interface designed using HTML and CSS,
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             if (targetSection) {
-              // حساب الأوفست بناءً على ارتفاع النافبار الحالي
               const navbarHeight = navbar.offsetHeight;
               const offsetTop = targetSection.offsetTop - navbarHeight - 20;
               
@@ -1188,7 +1194,6 @@ A clean and user-friendly contact form interface designed using HTML and CSS,
           });
         });
 
-        // Scroll Spy (تحديث الرابط النشط عند السكرول)
         window.addEventListener('scroll', () => {
           const sections = document.querySelectorAll('section');
           const navItems = document.querySelectorAll('.nav-links li');
@@ -1225,7 +1230,6 @@ A clean and user-friendly contact form interface designed using HTML and CSS,
         }
       }
 
-      // Card Parallax
       function initCardParallax() {
         const card = document.getElementById('interactiveCard');
         if(card) {
@@ -1249,7 +1253,6 @@ A clean and user-friendly contact form interface designed using HTML and CSS,
         }
       }
 
-      // Section Animations
       gsap.fromTo('.s1 .the-img img',
         { opacity: 0, x: 100 },
         {
@@ -1276,11 +1279,9 @@ A clean and user-friendly contact form interface designed using HTML and CSS,
         }
       );
 
-      // Refresh ScrollTrigger
       ScrollTrigger.refresh();
     });
 
-    // Prevent scroll restoration
     window.onload = function () {
       window.scrollTo(0, 0);
     };
